@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -9,6 +10,7 @@
 </head>
 
 <body>
+
     <?php require 'fonctions.php' ?>
     <?php if ($_POST) {
         $errors = array();
@@ -39,15 +41,32 @@
             $errors['password'] = "Votre mot de passe est invalide";
         }
         if (empty($errors)) {
-
-            $req = $pdo->prepare("INSERT INTO users SET username = ?, password = ?,email = ?");
+           
+            $req = $pdo->prepare("INSERT INTO users SET username = ?, password = ?,email = ?, confirmation_token = ?");
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-            $req->execute([$_POST['username'], $password, $_POST['email']]);
+            $token = str_random(60);
+            $req->execute([$_POST['username'],$password,$_POST['email'],$token]);
+            $user_id =$pdo ->lastInsertId();
+            mail($_POST['email'],'Confirmez votre inscription',"Merci de bien vouloir cliquer sur le lien ci-dessous\n\nhttp://localhost/ProjetBDD/confirm.php?id=$user_id&token=$token");
+            header('Location: login.php');
+            exit();
         }
 
         debug($errors);
     } ?>
-
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="login.php">Se connecter<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
     <h1>Inscription</h1>
     <?php if (!empty($errors)) : ?>
         <div class="alert alert-danger">
