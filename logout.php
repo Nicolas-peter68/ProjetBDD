@@ -1,5 +1,13 @@
-<?
+<?php
+
 session_start();
-unset($_SESSION['auth']);
-$_SESSION['flash']['success']='Déconnexion réussie';
-header('Location:login.php');
+ 
+// Unset all of the session variables
+$_SESSION = array();
+
+// Destroy the session.
+session_destroy();
+ 
+// Redirect to login page
+header('Location: login.php');
+exit();
