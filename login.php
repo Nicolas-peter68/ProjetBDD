@@ -58,10 +58,10 @@
     <?php endif; ?>
     <form action="" method="POST">
         <div class="form-row">
-            <div class="col">
+            <div class="form-group">
                 <input type="text" name="username" class="form-control" placeholder="Pseudo ou email">
             </div>
-            <div class="col">
+            <div class="form-group">
                 <input type="password" name="password" class="form-control" placeholder="Mot de passe">
             </div>
         </div>

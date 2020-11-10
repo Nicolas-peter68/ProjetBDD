@@ -73,13 +73,15 @@ logged_only(); ?>
     if ($result && $result->user_id == $_SESSION['auth']->id) : ?>
         <form action="" method="POST">
             <input type="hidden" name="id" value="<?= $result->id ?>">
-            <div class="form-group">
+            <div class="form-row">
+            <div class="form-group col-auto">
                 <label for="nom">Nom</label>
                 <input type="text" name="name" class="form-control" id="nom" value="<?= $result->name ?>">
             </div>
-            <div class="form-group">
+            <div class="form-group col-auto">
                 <label for="race">Race</label>
                 <input type="text" name="race" class="form-control" id="race" value="<?= $result->race ?>">
+            </div>
             </div>
             <button type="submit" class="btn btn-primary">Modifier</button>
         </form>

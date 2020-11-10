@@ -43,11 +43,8 @@
       </nav>
 
       <h1>Bivenenue sur votre compte <?= $_SESSION['auth']->username ?></h1>
-      <p>Créez votre personnage et partez à l'avanture !!😀</p>
-      <?php
-
-      $_SESSION['flash']['success'] = 'Vous êtes connecté';
-       ?>
+      <p>Créez votre personnage et partez à l'aventure !!😀</p>
+ 
     </body>
 
     </html>

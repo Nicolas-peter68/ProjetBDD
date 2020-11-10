@@ -79,26 +79,27 @@
         </div>
     <?php endif; ?>
     <form action="" method="POST">
-        <div class="form-group">
+        
+        <div class="form-group col-md-3">
             <label for="exampleInputEmail1">Email</label>
             <input type="email" name="email" class="form-control" aria-describedby="emailHelp">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-3">
             <label for="Pseudo">Votre pseudo</label>
             <input type="text" name="username" class="form-control" aria-describedby="emailHelp">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-3">
             <label for="exampleInputPassword1">Mot de passe</label>
             <input type="password" name="password" class="form-control" id="exampleInputPassword1">
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-3">
             <label for="exampleInputPassword1">Comfirmez votre votre mot de passe</label>
-            <input type="password" name="password_confirm" class="form-control" id="exampleInputPassword1">
+            <input type="password" name="password_confirm" class="form-control" id="exampleInputPassword1">  
         </div>
-
-        <button type="submit" class="btn btn-primary">S'inscrire</button>
+        <button type="submit" class="btn btn-primary col-auto">S'inscrire</button>
+ 
     </form>
 </body>
 
